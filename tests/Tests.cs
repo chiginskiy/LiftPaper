@@ -34,11 +34,17 @@ internal static class Tests
             }
             byte[] before = Hash(input);
             string first = Processor.Process(input, new Options());
+            Check(Path.GetFileName(first) == "Unicode-тест & spaces – LiftPaper.pdf", "Output filename must use the locale-neutral LiftPaper suffix");
             byte[] firstHash = Hash(first);
             string second = Processor.Process(input, new Options());
+            Check(Path.GetFileName(second) == "Unicode-тест & spaces – LiftPaper (2).pdf", "Collision numbering must follow the LiftPaper suffix");
             Check(first != second, "Existing PDFs must not be overwritten");
             Check(Hash(first).SequenceEqual(firstHash), "First output changed");
             Check(Hash(input).SequenceEqual(before), "Original changed");
+            string brandedInput = Path.Combine(dir, "already LiftPaper.png");
+            File.Copy(input, brandedInput);
+            string branded = Processor.Process(brandedInput, new Options());
+            Check(Path.GetFileName(branded) == "already LiftPaper – LiftPaper.pdf", "Source names containing LiftPaper must remain valid");
             byte[] pdf = File.ReadAllBytes(first);
             string ascii = Encoding.ASCII.GetString(pdf);
             Check(ascii.StartsWith("%PDF-1.4"), "PDF header");
@@ -61,7 +67,7 @@ internal static class Tests
             string invalid = Path.Combine(dir,"invalid.jpg"); File.WriteAllText(invalid,"not an image");
             bool rejected=false;try{Processor.Process(invalid,new Options());}catch{rejected=true;}
             Check(rejected, "Invalid input must be rejected");
-            Check(!File.Exists(Path.Combine(dir,"invalid — чистый.pdf")), "Invalid input must not leave a PDF");
+            Check(!File.Exists(Path.Combine(dir,"invalid – LiftPaper.pdf")), "Invalid input must not leave a PDF");
             Check(typeof(Processor).Assembly.GetReferencedAssemblies().All(x=>new[]{"mscorlib","System","System.Core","System.Drawing","System.Windows.Forms"}.Contains(x.Name)), "No bundled external dependencies");
             Console.WriteLine("PASS: " + assertions + " assertions; synthetic images only.");
             return 0;

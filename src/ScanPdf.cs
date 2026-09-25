@@ -273,7 +273,7 @@ internal static class Processor
 
     private static string SavePdf(string source, int width, int height, byte[] data, bool jpeg)
     {
-        string stem = Path.Combine(Path.GetDirectoryName(source), Path.GetFileNameWithoutExtension(source) + " — чистый");
+        string stem = Path.Combine(Path.GetDirectoryName(source), Path.GetFileNameWithoutExtension(source) + " – LiftPaper");
         string target = null; FileStream file = null;
         for (int i = 1; i < 10000; i++)
         {

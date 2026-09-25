@@ -10,6 +10,6 @@
 - EXIF orientation handling and PNG transparency composited onto white.
 - Portrait or landscape A4 placement with preserved aspect ratio and no additional raster resampling step.
 - Lossless PDF image compression by default, with optional JPEG quality 95 compact mode.
-- Collision-safe numbered output names and batch processing.
+- Locale-neutral ` – LiftPaper.pdf` output names, collision-safe numbering, and batch processing.
 - Fully local operation with no network requests, telemetry, ads, or automatic updater.
 - Embedded rights notice, reproducible build instructions, and synthetic regression tests.

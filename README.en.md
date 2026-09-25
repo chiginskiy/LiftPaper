@@ -24,7 +24,7 @@ Typical workflow:
 2. Open the application.
 3. Select JPG/PNG files or drag them into the window.
 4. Review the settings, especially the edge-cleaning width.
-5. LiftPaper creates a separate `name — чистый.pdf` beside each source image.
+5. LiftPaper creates a separate `name – LiftPaper.pdf` beside each source image.
 6. Review the output before sharing or printing it.
 7. For the intended page size, print as A4 using **Actual size / 100%**.
 

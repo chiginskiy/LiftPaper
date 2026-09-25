@@ -2,6 +2,17 @@
 
 Please describe the input type, app version, Windows version, expected result and actual result. Use synthetic or fully anonymised examples. Never post real signatures, financial records, customer documents or secrets.
 
+## Local validation
+
+Validate release-bound changes locally on Windows from the repository root:
+
+```powershell
+.\build.ps1
+.\test.ps1
+```
+
+Both commands must complete successfully before a release-bound change is committed. When hosted CI is unavailable, the local Windows build and synthetic regression tests are the release validation source of truth. Keep the working tree and validation log available until the corresponding release is published.
+
 Before submitting a pull request:
 
 1. Run `build.ps1` and `test.ps1` on Windows.
