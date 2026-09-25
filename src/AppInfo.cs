@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Windows.Forms;
 
 [assembly: AssemblyTitle("LiftPaper")]
-[assembly: AssemblyDescription("Offline scan cleanup and A4 PDF export")]
+[assembly: AssemblyDescription("Prepare scanned JPG/PNG pages for clean A4 printing")]
 [assembly: AssemblyProduct("LiftPaper")]
 [assembly: AssemblyCompany("chiginskiy")]
 [assembly: AssemblyCopyright("Copyright (c) 2026 chiginskiy. All rights reserved.")]
@@ -28,9 +28,11 @@ internal static class AppInfo
             using (var reader = new StreamReader(stream)) license = reader.ReadToEnd();
             var text = new TextBox { Multiline = true, ReadOnly = true, ScrollBars = ScrollBars.Vertical, Dock = DockStyle.Fill, Text =
                 "LiftPaper " + Version + Environment.NewLine + Copyright + Environment.NewLine +
-                "Исходники и условия распространения: " + Repository + Environment.NewLine +
-                "Программа предоставляется без гарантий. Проверяйте PDF перед отправкой." + Environment.NewLine +
-                "Обработка локальная. Нет загрузки документов, телеметрии или автообновления." + Environment.NewLine + Environment.NewLine +
+                "Подготавливает JPG/PNG-сканы к печати и сохраняет отдельные PDF A4." + Environment.NewLine +
+                "Исходные изображения не изменяются; обработка выполняется локально." + Environment.NewLine +
+                "Проверяйте готовый PDF перед отправкой или печатью." + Environment.NewLine +
+                "Нет загрузки документов, телеметрии или автоматического обновления." + Environment.NewLine +
+                "Исходники и условия распространения: " + Repository + Environment.NewLine + Environment.NewLine +
                 license.Replace("\r\n", "\n").Replace("\n", Environment.NewLine) };
             dialog.Controls.Add(text);
             dialog.ShowDialog(owner);

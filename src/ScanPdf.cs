@@ -62,26 +62,26 @@ internal sealed class MainForm : Form
         StartPosition = FormStartPosition.CenterScreen;
         AutoScaleMode = AutoScaleMode.Dpi;
         AllowDrop = true;
-        var title = new Label { Text = "Чистый PDF для печати", Font = new Font("Segoe UI", 17, FontStyle.Bold), AutoSize = true, Location = new Point(22, 18) };
-        var hint = new Label { Text = "Перетащите JPG/PNG в окно или на значок программы.", AutoSize = true, Location = new Point(24, 62) };
-        var edgeLabel = new Label { Text = "Белые поля по периметру, мм:", AutoSize = true, Location = new Point(24, 106) };
+        var title = new Label { Text = "Из скана — в PDF для печати", Font = new Font("Segoe UI", 17, FontStyle.Bold), AutoSize = true, Location = new Point(22, 18) };
+        var hint = new Label { Text = "Выберите JPG/PNG или перетащите файлы в окно.", AutoSize = true, Location = new Point(24, 62) };
+        var edgeLabel = new Label { Text = "Очистить края до белого, мм:", AutoSize = true, Location = new Point(24, 106) };
         edges.Location = new Point(278, 102); edges.Size = new Size(80, 28);
         edges.DecimalPlaces = 1; edges.Increment = 0.5m; edges.Minimum = 0; edges.Maximum = 15; edges.Value = 8.5m;
-        var edgeNote = new Label { Text = "В этой полосе стирается всё. Если есть отметки у края, поставьте 0.", AutoSize = true, Location = new Point(24, 139), ForeColor = Color.FromArgb(85, 85, 85) };
-        protect.Text = "Сохранять цветные штрихи подписи и печати";
+        var edgeNote = new Label { Text = "Полоса считается по A4; все отметки внутри неё удаляются из результата.", AutoSize = true, Location = new Point(24, 139), ForeColor = Color.FromArgb(85, 85, 85) };
+        protect.Text = "Сохранять выраженные цветные штрихи (подписи, печати)";
         protect.Checked = true; protect.AutoSize = true; protect.Location = new Point(24, 173);
-        compact.Text = "Компактный PDF (JPEG 95; без галочки — сжатие без потерь)";
+        compact.Text = "Уменьшить размер PDF (JPEG 95; иначе — без потерь)";
         compact.AutoSize = true; compact.Location = new Point(24, 206);
-        choose.Text = "Выбрать сканы…"; choose.Location = new Point(24, 245); choose.Size = new Size(175, 36);
+        choose.Text = "Выбрать JPG/PNG…"; choose.Location = new Point(24, 245); choose.Size = new Size(175, 36);
         choose.Click += async delegate {
-            using (var dialog = new OpenFileDialog { Filter = "Сканы JPG и PNG|*.jpg;*.jpeg;*.png", Multiselect = true, Title = "Выберите исходные сканы" })
+            using (var dialog = new OpenFileDialog { Filter = "Изображения JPG и PNG|*.jpg;*.jpeg;*.png", Multiselect = true, Title = "Выберите исходные изображения" })
                 if (dialog.ShowDialog(this) == DialogResult.OK) await RunFiles(dialog.FileNames);
         };
         open.Text = "Открыть PDF"; open.Location = new Point(213, 245); open.Size = new Size(145, 36); open.Enabled = false;
         open.Click += delegate { if (lastOutput != null) System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(lastOutput) { UseShellExecute = true }); };
         var about = new Button { Text = "О программе", Location = new Point(372, 245), Size = new Size(140, 36) };
         about.Click += delegate { AppInfo.ShowAbout(this); };
-        status.Text = "Исходники сохраняются. Результат — рядом, отдельный PDF A4.";
+        status.Text = "Исходники не изменяются. Для каждого файла создаётся отдельный PDF A4 рядом с ним.";
         status.AutoSize = true; status.Location = new Point(24, 299);
         results.Location = new Point(24, 328); results.Size = new Size(622, 115);
         results.Multiline = true; results.ReadOnly = true; results.ScrollBars = ScrollBars.Vertical;
@@ -118,7 +118,7 @@ internal sealed class MainForm : Form
         {
             busy = false; choose.Enabled = edges.Enabled = protect.Enabled = compact.Enabled = true;
             open.Enabled = lastOutput != null;
-            status.Text = "Готово: " + passed + ". Ошибок: " + failed + ". Печать: A4, фактический размер (100%).";
+            status.Text = "Готово: " + passed + ". Ошибок: " + failed + ". Печатайте как A4 в фактическом размере (100%).";
         }
     }
 }
