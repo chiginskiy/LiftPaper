@@ -1,0 +1,12 @@
+/dist/
+/test-output/
+/.vs/
+*.user
+*.suo
+*.pdb
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.zip
+*.exe
