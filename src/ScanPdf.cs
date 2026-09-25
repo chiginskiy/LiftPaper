@@ -1,4 +1,5 @@
-// Copyright (c) 2026 chiginskiy. All rights reserved.
+// Copyright 2026 Dmitriy Chiginskiy
+// SPDX-License-Identifier: Apache-2.0
 using System;
 using System.Collections.Generic;
 using System.Drawing;

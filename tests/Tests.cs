@@ -1,4 +1,5 @@
-// Copyright (c) 2026 chiginskiy. All rights reserved.
+// Copyright 2026 Dmitriy Chiginskiy
+// SPDX-License-Identifier: Apache-2.0
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -69,6 +70,9 @@ internal static class Tests
             Check(rejected, "Invalid input must be rejected");
             Check(!File.Exists(Path.Combine(dir,"invalid – LiftPaper.pdf")), "Invalid input must not leave a PDF");
             Check(typeof(Processor).Assembly.GetReferencedAssemblies().All(x=>new[]{"mscorlib","System","System.Core","System.Drawing","System.Windows.Forms"}.Contains(x.Name)), "No bundled external dependencies");
+            string[] resources = typeof(Processor).Assembly.GetManifestResourceNames();
+            Check(resources.Contains("LiftPaper.LICENSE"), "Apache-2.0 license must be embedded");
+            Check(resources.Contains("LiftPaper.NOTICE"), "NOTICE attribution must be embedded");
             Console.WriteLine("PASS: " + assertions + " assertions; synthetic images only.");
             return 0;
         }

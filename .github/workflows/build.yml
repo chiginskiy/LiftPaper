@@ -27,4 +27,5 @@ jobs:
             dist/LiftPaper.exe
             dist/SHA256SUMS.txt
             LICENSE
+            NOTICE
           if-no-files-found: error

@@ -2,13 +2,16 @@
 
 **Из скана — к чистой печати.**
 
+Автор: **[Дмитрий Сергеевич Чигинский / Dmitriy Chiginskiy](https://chiginskiy.ru/)**. LiftPaper распространяется по Apache License 2.0.
+
 LiftPaper 0.1.0 — локальная Windows-утилита для подготовки JPG/PNG-сканов к печати. Каждый входной файл преобразуется в отдельный PDF A4: нейтральный фон осветляется, тёмный нейтральный текст становится контрастнее, а выраженные цветные штрихи при включённой защите стараются сохраниться.
 
 ## Скачать
 
 - `LiftPaper.exe` — один исполняемый файл; отдельная установка не требуется.
 - `SHA256SUMS.txt` — контрольная сумма EXE.
-- `LICENSE` — условия распространения; уведомление также встроено в EXE.
+- `LICENSE` — Apache License 2.0.
+- `NOTICE` — уведомление об авторстве и происхождении проекта.
 - Исходники и инструкции сборки находятся в репозитории и архиве исходников соответствующего тега.
 
 ## Как использовать
@@ -61,12 +64,16 @@ LiftPaper 0.1.0 — локальная Windows-утилита для подго�
 - Интерфейс 0.1.0 — русский.
 - Бинарник пока не подписан сертификатом издателя.
 
+Windows Defender SmartScreen может показать предупреждение о неизвестном приложении. Не отключайте SmartScreen: скачивайте `LiftPaper.exe` только из официального Release и при необходимости сверяйте SHA-256 из `SHA256SUMS.txt`.
+
 
 ---
 
 ## English
 
 **From scan to clean print.**
+
+Author: **[Dmitriy Chiginskiy / Дмитрий Сергеевич Чигинский](https://chiginskiy.ru/)**. LiftPaper is licensed under the Apache License 2.0.
 
 LiftPaper 0.1.0 is a local Windows utility for preparing scanned JPG/PNG pages for printing. Each input image becomes a separate A4 PDF: neutral paper is brightened, dark neutral text gains contrast, and pronounced coloured marks can be preserved when colour protection is enabled.
 
@@ -106,3 +113,5 @@ Always review the PDF before sharing or printing it, and keep the source files.
 Version 0.1.0 does not provide OCR, deskew, perspective correction, PDF input, page merging, or digital signing. The physical size of the source sheet is not detected; every input is fitted to A4.
 
 Windows 10/11 are the target platforms. .NET Framework 4.5 or newer is required. The 0.1.0 user interface is in Russian. The executable is not yet publisher-code-signed.
+
+Windows Defender SmartScreen may warn that the application is unrecognized. Do not disable SmartScreen: download `LiftPaper.exe` only from the official Release and verify its SHA-256 against `SHA256SUMS.txt` when appropriate.

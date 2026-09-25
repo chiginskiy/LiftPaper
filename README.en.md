@@ -6,7 +6,8 @@ LiftPaper is a local Windows utility that turns scanned JPG/PNG pages into separ
 
 [Русский](README.md) · [Releases](https://github.com/chiginskiy/LiftPaper/releases)
 
-**License status:** all rights reserved; no open-source license has been selected. Public visibility alone does not grant unrestricted use or redistribution rights. See [LICENSE](LICENSE).
+**Author:** [Dmitriy Chiginskiy / Дмитрий Сергеевич Чигинский](https://chiginskiy.ru/)  
+**License:** [Apache License 2.0](LICENSE). LiftPaper may be used, studied, modified, and redistributed, including commercially, subject to the license terms and applicable attribution notices in [NOTICE](NOTICE).
 
 ## What LiftPaper is for
 
@@ -121,6 +122,12 @@ If source files are stored in a folder synchronised by OneDrive, Dropbox, or ano
 
 Do not attach real contracts, signatures, financial records, personal data, or other confidential material to public GitHub Issues.
 
+## Download trust and SmartScreen
+
+Official LiftPaper binaries are published in **Releases** together with `SHA256SUMS.txt`. Early public builds are not yet publisher-code-signed, so Windows Defender SmartScreen may warn that the app is unrecognized.
+
+Do not disable SmartScreen or other Windows security protections to install LiftPaper. Download the EXE only from the official repository and verify SHA-256 when appropriate. Authenticode signing is planned for official releases; once signing is introduced, checksums will be generated from the already signed binary.
+
 ## Requirements
 
 - Windows 10/11 are the target platforms;
@@ -158,11 +165,13 @@ A failed input does not stop subsequent files from being processed.
 
 ## Copyright and licensing
 
-Maintained by **chiginskiy**. Copyright (c) 2026 chiginskiy.
+The original author and maintainer is **[Dmitriy Chiginskiy (Дмитрий Сергеевич Чигинский)](https://chiginskiy.ru/)**.
 
-No open-source license has been selected. Permission to use and redistribute the software must be obtained separately except where applicable law or platform terms provide otherwise. See [LICENSE](LICENSE).
+Copyright © 2026 Dmitriy Chiginskiy.
 
-The rights notice is also embedded in the executable and available from the About dialog. It does not claim ownership of your source documents or generated PDFs and does not impose licensing terms on those documents.
+LiftPaper is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE), [NOTICE](NOTICE), and [AUTHORS.md](AUTHORS.md). The attribution notice and license text are also embedded in the executable and available from the About dialog.
+
+Apache-2.0 does not transfer ownership of your source documents or generated PDFs to the developer and does not impose licensing terms on user documents.
 
 Only system Windows/.NET components are required; no third-party libraries are bundled. See [THIRD_PARTY.md](THIRD_PARTY.md).
 

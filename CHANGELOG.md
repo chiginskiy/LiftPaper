@@ -12,4 +12,5 @@
 - Lossless PDF image compression by default, with optional JPEG quality 95 compact mode.
 - Locale-neutral ` – LiftPaper.pdf` output names, collision-safe numbering, and batch processing.
 - Fully local operation with no network requests, telemetry, ads, or automatic updater.
-- Embedded rights notice, reproducible build instructions, and synthetic regression tests.
+- Licensed under Apache-2.0 with NOTICE attribution to original author Dmitriy Chiginskiy.
+- Embedded LICENSE/NOTICE resources, reproducible build instructions, and synthetic regression tests.
